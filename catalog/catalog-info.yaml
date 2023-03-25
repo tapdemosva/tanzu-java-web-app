@@ -11,6 +11,10 @@ metadata:
     - tanzu
   annotations:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=tanzu-java-web-app'
+  links:
+    - url: https://docs.konghq.com/gateway/latest/kong-enterprise/dev-portal/
+      title: Kong Dev
+      icon: dashboard
 spec:
   type: service
   lifecycle: experimental
