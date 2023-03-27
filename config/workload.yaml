@@ -4,25 +4,15 @@ metadata:
   name: tanzu-java-web-app
   labels:
     apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/auto-configure-actuators: "true"
     app.kubernetes.io/part-of: tanzu-java-web-app
-    apps.tanzu.vmware.com/has-tests: "true"
 spec:
   params:
-  - name: testing_pipeline_matching_labels
-    value:
-      apps.tanzu.vmware.com/pipeline: test
-      apps.tanzu.vmware.com/language: java
-      apps.tanzu.vmware.com/pipeline: jenkins-pipeline
-  - name: testing_pipeline_params
-    value:
-      job-name: maven_test
-      secret-name: jenkins-tls
-      job-params: "[{\"name\":\"GIT-URL\",\"value\":\"https://github.com/Eknathreddy09/tanzu-java-web-app\"},{\"name\":\"GIT-BRANCH\",\"value\":\"main\"}]"
   - name: annotations
     value:
       autoscaling.knative.dev/minScale: "1"
   source:
     git:
-      url: https://github.com/Eknathreddy09/tanzu-java-web-app
+      url: <https URL for your generated project's Git repository>
       ref:
         branch: main
